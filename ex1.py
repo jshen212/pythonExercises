@@ -9,7 +9,7 @@ incomes = np.random.normal(100, 20, 10000)
 print np.mean(incomes)
 print np.median(incomes)
 
-#creates a histogram with 50 values to a bucket
+#creates a histogram with 50 buckets
 plt.hist(incomes, 50)
 plt.show()
 

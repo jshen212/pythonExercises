@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 # creates a random set of 10000 values centered around 0 with a std of 0.5
 vals = np.random.normal(0, 0.5, 10000)
 
-# creates a histogram of the vals with 50 vals to a bucket
+# creates a histogram of the vals with 50 buckets
 plt.hist(vals, 50)
 plt.show()
 

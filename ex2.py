@@ -8,7 +8,7 @@ incomes = np.random.normal(27000, 15000, 10000)
 # calculates the mean of the incomes
 np.mean(incomes)
 
-# creates a histogram based on incomes with 50 values to a bucket
+# creates a histogram based on incomes with 50 buckets
 plt.hist(incomes, 50)
 plt.show()
 
