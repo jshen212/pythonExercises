@@ -14,8 +14,8 @@ def createClusteredData(N, k):
         ageCentroid = random.uniform(20.0, 70.0)
         for j in range(int(pointsPerCluster)):
             X.append([random.normal(incomeCentroid, 10000.0), random.normal(ageCentroid, 2.0)])
-        X = array(X)
-        return X
+    X = array(X)
+    return X
 
 data = createClusteredData(100, 5)
 model = KMeans(n_clusters=5)
