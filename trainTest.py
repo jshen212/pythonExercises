@@ -13,7 +13,7 @@ purchaseAmount = np.random.normal(50.0, 30.0, 100) / pageSpeeds
 # scatter plotting the two sets of data
 scatter(pageSpeeds, purchaseAmount)
 
-creating train sample
+# creating train sample
 trainX = pageSpeeds[:80]
 trainY = purchaseAmount[:80]
 
