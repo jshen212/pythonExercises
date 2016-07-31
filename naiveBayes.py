@@ -18,16 +18,16 @@ def readFiles(path):
                     lines.append(line)
                 elif line == '\n':
                     inBody = True
-
             f.close()
             message = '\n'.join(lines)
             yield path, message
+
 
 def dataFrameFromDirectory(path, classification):
     rows = []
     index = []
     for filename, message in readFiles(path):
-        rows.append({'message': message, 'class': lassification})
+        rows.append({'message': message, 'class': classification})
         index.append(filename)
 
     return DataFrame(rows, index=index)
@@ -35,6 +35,20 @@ def dataFrameFromDirectory(path, classification):
 data = DataFrame({'message': [], 'class': []})
 
 data = data.append(dataFrameFromDirectory('e:/sundog-consult/Udemy/DataScience/emails/spam', 'spam'))
-data = data.append(dataFrameFromDirectory('e:/sundog-consult/Udemy/DataSciecne/emails/ham', 'ham'))
+data = data.append(dataFrameFromDirectory('e:/sundog-consult/Udemy/DataScience/emails/ham', 'ham'))
 
 data.head()
+
+vectorizer = CountVectorizer()
+counts = vectorizer.fit_transform(data['message'].values)
+
+classifier = MultinomialNB()
+targets = data['class'].values
+classifier.fit(counts, targets)
+
+examples = ['Free Viagra now!!!', "Hi Bob, how about a game of golf tomorrow?"]
+example_counts = vectorizer.transform(examples)
+predictions = classifier.predict(example_counts)
+predictions
+
+print predictions
